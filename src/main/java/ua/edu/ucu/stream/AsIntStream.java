@@ -28,13 +28,13 @@ public class AsIntStream implements IntStream {
         if (!iter.hasNext()) {
             throw new IllegalArgumentException();
         }
+        int[] streamArr = toArray();
         int sum = 0;
-        int counter = 0;
-        while (iter.hasNext()) {
-            counter++;
-            sum += iter.next();
+        for(Integer el:streamArr){
+            sum+=el;
         }
-        return (double) (sum / counter);
+        int len = streamArr.length;
+        return (double) sum/len;
 
     }
 

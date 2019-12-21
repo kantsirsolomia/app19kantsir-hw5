@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class StreamIterator implements Iterator<Integer> {
     private ArrayList<Integer> elList = new ArrayList<>();
-    private int index = 0;
+    private int index;
 
     public StreamIterator(int[] elements) {
         for (Integer el : elements) {
@@ -26,7 +26,6 @@ public class StreamIterator implements Iterator<Integer> {
     }
 
     public Integer next() {
-//        index++;
         return elList.get(index++);
 
     }

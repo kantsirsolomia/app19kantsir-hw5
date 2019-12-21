@@ -1,6 +1,5 @@
 package ua.edu.ucu;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import ua.edu.ucu.stream.AsIntStream;
