@@ -23,12 +23,12 @@ public class AsIntStreamTest1 {
         negStream = AsIntStream.of(negValues);
         emptyStream = AsIntStream.of(empty);
     }
-//
+
     @Test
-    public void testOf() throws Exception {
+    public void testOf() {
         assertSame(AsIntStream.class, intStream.getClass());
     }
-//
+
     @Test
     public void testAverage() {
         double result = intStream.average();
@@ -38,11 +38,8 @@ public class AsIntStreamTest1 {
         double result1 = negStream.average();
         double expexted1 = -4.0;
         assertEquals(result, expexted, 0.0001);
-
-
 }
 
-//
     @Test
     public void testMax() {
         Integer result = intStream.max();
@@ -51,10 +48,9 @@ public class AsIntStreamTest1 {
         Integer result1 = negStream.max();
         assertEquals(Integer.valueOf(-1), result1);
     }
-//
+
     @Test
     public void testMin(){
-
         Integer result = intStream.min();
         assertEquals(Integer.valueOf(-1), result);
 
@@ -70,9 +66,8 @@ public class AsIntStreamTest1 {
 
         long result1 = intStream.count();
         assertEquals(5L, result1);
-
     }
-//
+
     @Test
     public void testSum() throws Exception {
         Integer result = negStream.sum();
@@ -80,12 +75,11 @@ public class AsIntStreamTest1 {
 
         Integer result1 = intStream.sum();
         assertEquals(Integer.valueOf(5), result1);
-
     }
+
     @Test(expected = IllegalArgumentException.class)
     public void testAverageEmpty() {
         Double res = emptyStream.average();
-
     }
 
     @Test
@@ -95,7 +89,6 @@ public class AsIntStreamTest1 {
 
         IntStream result =  negStream.filter(x -> x > 0);
         assertArrayEquals(new int[]{}, result.toArray());
-
     }
 
 
@@ -106,7 +99,7 @@ public class AsIntStreamTest1 {
         assertArrayEquals(new Object[]{-1, 0, 1, 2, 3}, check.toArray());
 
     }
-//
+
     @Test
     public void testMap() throws Exception {
         IntStream result = negStream.map(x -> x *x);
@@ -118,7 +111,7 @@ public class AsIntStreamTest1 {
 
 
     }
-//
+
     @Test
     public void testFlatMap() {
         IntStream result = negStream.flatMap(x -> AsIntStream.of(x - 1, x*2, x + 1));
@@ -126,29 +119,23 @@ public class AsIntStreamTest1 {
 
         IntStream result1 = intStream.flatMap(x -> AsIntStream.of(x - 1, x << 1, x + 100));
         assertArrayEquals(new int[]{-2, -2, 99, -1, 0, 100, 0, 2, 101, 1, 4, 102, 2, 6, 103}, result1.toArray());
-
-
     }
 
     @Test
-    public void testReduce() throws Exception {
+    public void testReduce() {
         int result = negStream.reduce(0, (sum, x) -> sum += x);
         assertEquals(-21, result);
 
         int result1 = intStream.reduce(0, (substract, x) -> substract -= x);
         assertEquals(-5, result1);
-
-
     }
 
     @Test
-    public void testToArray() throws Exception {
+    public void testToArray() {
         int[] expResult = {-1, 0, 1, 2, 3};
         int[] result = intStream.toArray();
 
         assertArrayEquals(expResult, result);
     }
-
-
 
 }
