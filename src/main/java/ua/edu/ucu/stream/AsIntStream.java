@@ -45,7 +45,7 @@ public class AsIntStream implements IntStream {
         }
         int maxValue = Integer.MIN_VALUE;
         for (Iterator<Integer> it = iter; it.hasNext(); ) {
-            int el = it.next();
+            Integer el = it.next();
             if (el > maxValue) {
                 maxValue = el;
             }
@@ -60,7 +60,7 @@ public class AsIntStream implements IntStream {
         }
         int minValue = Integer.MAX_VALUE;
         for (Iterator<Integer> it = iter; it.hasNext(); ) {
-            int el = it.next();
+            Integer el = it.next();
             if (el < minValue) {
                 minValue = el;
             }
