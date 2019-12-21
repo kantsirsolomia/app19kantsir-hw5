@@ -60,7 +60,7 @@ public class AsIntStreamTest1 {
 
 
     @Test
-    public void testCount() throws Exception {
+    public void testCount() {
         long result = negStream.count();
         assertEquals(5L, result);
 
@@ -69,7 +69,7 @@ public class AsIntStreamTest1 {
     }
 
     @Test
-    public void testSum() throws Exception {
+    public void testSum() {
         Integer result = negStream.sum();
         assertEquals(Integer.valueOf(-21), result);
 
@@ -93,7 +93,7 @@ public class AsIntStreamTest1 {
 
 
     @Test
-    public void testForEach() throws Exception {
+    public void testForEach(){
         ArrayList<Integer> check = new ArrayList<>();
         intStream.forEach(check::add);
         assertArrayEquals(new Object[]{-1, 0, 1, 2, 3}, check.toArray());
@@ -101,7 +101,7 @@ public class AsIntStreamTest1 {
     }
 
     @Test
-    public void testMap() throws Exception {
+    public void testMap()  {
         IntStream result = negStream.map(x -> x *x);
 
         assertArrayEquals(new int[]{1, 25, 100, 4, 9}, result.toArray());
